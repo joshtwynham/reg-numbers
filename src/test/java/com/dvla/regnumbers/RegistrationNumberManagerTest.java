@@ -13,8 +13,8 @@ import static com.dvla.regnumbers.ApplicationInitializer.REG_NUMBER_THREE;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegistrationNumberManagerTest {
-
     RegistrationNumberManager registrationNumberManager;
+
     @BeforeEach
     public void setup() {
         List<RegistrationNumber> registrationNumbers = new ArrayList<>();
@@ -25,15 +25,22 @@ public class RegistrationNumberManagerTest {
 
         registrationNumberManager = new RegistrationNumberManager(registrationNumbers);
     }
+
     @Test
-    public void shouldReturnCorrectQuantityOfRegistrationNumbers() {
+    public void givenRegistrationPlates_whenGetTotalQuantity_thenReturnCorrectAmount() {
         int totalQuantityOfRegistrationNumbers = registrationNumberManager.getTotalQuantityOfRegistrationNumbers();
         assertEquals(3, totalQuantityOfRegistrationNumbers);
     }
 
     @Test
-    public void shouldReturnVehicleIdForGivenRegistrationNumber() {
-        Optional<Integer> vehicleId = registrationNumberManager.getVehicleIdFor("AB01 CDE");
+    public void givenExistingVehicleId_whenGetVehicleId_thenVehicleIdReturned() {
+        Optional<Integer> vehicleId = registrationNumberManager.getVehicleIdFor(REG_NUMBER_ONE.getValue());
         assertEquals(REG_NUMBER_ONE.getVehicleId(), vehicleId.orElse(null));
+    }
+
+    @Test
+    public void givenNullVehicleId_whenGetVehicleId_thenOptionalEmptyReturned() {
+        Optional<Integer> vehicleId = registrationNumberManager.getVehicleIdFor(REG_NUMBER_THREE.getValue());
+        assertEquals(Optional.empty(), vehicleId);
     }
 }

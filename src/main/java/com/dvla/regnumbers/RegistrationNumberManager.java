@@ -16,7 +16,7 @@ public class RegistrationNumberManager {
     public Optional<Integer> getVehicleIdFor(String registrationNumber) {
         for(RegistrationNumber regNumber : registrationNumbers) {
             if(regNumber.getValue().equals(registrationNumber)) {
-                return Optional.of(regNumber.getVehicleId());
+                return Optional.ofNullable(regNumber.getVehicleId());
             }
         }
         return Optional.empty();
