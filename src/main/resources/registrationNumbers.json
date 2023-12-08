@@ -1,0 +1,17 @@
+[
+  {
+    "value": "AB01 CDE",
+    "year": 2001,
+    "vehicleId": 12345
+  },
+  {
+    "value": "FG02 HJK",
+    "year": 2002,
+    "vehicleId": 67890
+  },
+  {
+    "value": "L33T H4X0R",
+    "year": 2022,
+    "vehicleId": null
+  }
+]
