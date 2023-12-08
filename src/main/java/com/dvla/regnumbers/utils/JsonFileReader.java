@@ -1,5 +1,6 @@
-package com.dvla.regnumbers;
+package com.dvla.regnumbers.utils;
 
+import com.dvla.regnumbers.registrationnumber.RegistrationNumber;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

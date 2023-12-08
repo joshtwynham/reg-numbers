@@ -1,5 +1,6 @@
-package com.dvla.regnumbers;
+package com.dvla.regnumbers.registrationnumber;
 
+import com.dvla.regnumbers.registrationnumber.RegistrationNumber;
 import lombok.AllArgsConstructor;
 
 import java.util.List;

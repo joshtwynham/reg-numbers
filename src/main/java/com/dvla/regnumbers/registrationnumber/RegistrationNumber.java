@@ -1,4 +1,4 @@
-package com.dvla.regnumbers;
+package com.dvla.regnumbers.registrationnumber;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

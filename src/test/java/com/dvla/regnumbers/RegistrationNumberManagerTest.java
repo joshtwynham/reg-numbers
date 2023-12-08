@@ -1,5 +1,7 @@
 package com.dvla.regnumbers;
 
+import com.dvla.regnumbers.registrationnumber.RegistrationNumber;
+import com.dvla.regnumbers.registrationnumber.RegistrationNumberManager;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -7,10 +9,12 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Optional;
 
-import static com.dvla.regnumbers.JsonFileReader.getRegistrationNumbers;
+import static com.dvla.regnumbers.utils.JsonFileReader.getRegistrationNumbers;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class RegistrationNumberManagerTest {
+    public static final String NON_EXISTENT_REGISTRATION = "N0 EX1ST33";
+
     RegistrationNumberManager registrationNumberManager;
     List<RegistrationNumber> registrationNumbers;
 
@@ -35,6 +39,12 @@ public class RegistrationNumberManagerTest {
     @Test
     public void givenNullVehicleId_whenGetVehicleId_thenOptionalEmptyReturned() {
         Optional<Integer> vehicleId = registrationNumberManager.getVehicleIdFor(registrationNumbers.get(2).getValue());
+        assertEquals(Optional.empty(), vehicleId);
+    }
+
+    @Test
+    public void givenNonExistentRegistrationNumber_whenGetVehicleId_thenOptionalEmptyReturned() {
+        Optional<Integer> vehicleId = registrationNumberManager.getVehicleIdFor(NON_EXISTENT_REGISTRATION);
         assertEquals(Optional.empty(), vehicleId);
     }
 }
